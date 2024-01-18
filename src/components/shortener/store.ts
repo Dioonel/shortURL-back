@@ -6,4 +6,8 @@ export class ShortenerStore {
         const shortUrl = new shortenerModel(obj);
         return await shortUrl.save();
     }
+
+    async get(shortId: string) {
+        return await shortenerModel.findOne({ shortId });
+    }
 }

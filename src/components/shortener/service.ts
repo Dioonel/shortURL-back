@@ -14,4 +14,9 @@ export class ShortenerService {
         };
         return await shortenerStore.create(shortUrl);
     }
+
+    async get(shortId?: string) {
+        if(!shortId) throw new Error('Short ID is required');
+        return await shortenerStore.get(shortId);
+    }
 }
