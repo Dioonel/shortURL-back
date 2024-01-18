@@ -3,9 +3,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { router } from './router.ts';
 import { connect } from './db.ts';
+import cors from 'cors';
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 await connect(process.env.MONGO_URL);
 
