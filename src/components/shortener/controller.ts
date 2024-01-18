@@ -1,19 +1,24 @@
 import { Router } from 'express';
 
 import { ShortenerService } from './service.ts';
+import { joiValidator } from './../../middlewares/joi.validator.ts';
+import { UrlJoi } from './dto.ts';
 
 const router = Router();
 const service = new ShortenerService();
 
-router.post('/', async (req, res) => {
-    try{
-        console.log(req.body);
-        const response = await service.create(req.body?.url);
-        res.json(response);
-    } catch (err) {
-        res.status(400).json({ error: err.message });
+router.post('/',
+    joiValidator(UrlJoi, 'body'),
+    async (req, res) => {
+        try{
+            console.log(req.body);
+            const response = await service.create(req.body?.url);
+            res.json(response);
+        } catch (err) {
+            res.status(500).json({ error: err.message });
+        }
     }
-});
+);
 
 router.get('/:id', async (req, res) => {
     try {
@@ -25,7 +30,7 @@ router.get('/:id', async (req, res) => {
             res.status(404).json({ error: 'Not found' });
         }
     } catch (err) {
-        res.status(400).json({ error: err.message });
+        res.status(500).json({ error: err.message });
     }
 });
 
