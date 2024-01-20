@@ -1,8 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
-import { router } from './router.ts';
-import { connect } from './db.ts';
+import { router } from './router.js';
+import { connect } from './db.js';
 import cors from 'cors';
 
 const app = express();

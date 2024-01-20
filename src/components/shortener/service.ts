@@ -1,4 +1,4 @@
-import { ShortenerStore } from "./store.ts";
+import { ShortenerStore } from "./store.js";
 import { nanoid } from "nanoid";
 
 const shortenerStore = new ShortenerStore();

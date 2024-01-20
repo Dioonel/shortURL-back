@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import { ShortenerService } from './service.ts';
-import { joiValidator } from './../../middlewares/joi.validator.ts';
-import { UrlJoi } from './dto.ts';
+import { ShortenerService } from './service.js';
+import { joiValidator } from './../../middlewares/joi.validator.js';
+import { UrlJoi } from './dto.js';
 
 const router = Router();
 const service = new ShortenerService();

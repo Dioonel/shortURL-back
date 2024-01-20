@@ -1,5 +1,5 @@
-import { shortenerModel } from "./model.ts";
-import { ShortUrl } from "./dto.ts";
+import { shortenerModel } from "./model.js";
+import { ShortUrl } from "./dto.js";
 
 export class ShortenerStore {
     async create(obj: ShortUrl) {
